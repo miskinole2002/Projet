@@ -10,6 +10,10 @@ templates_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "templat
 templates=Jinja2Templates(directory=templates_dir)
 
 @app.get("/")
+async def home_page(resquest:Request):
+    return templates.TemplateResponse("home.html",{"request":resquest}) 
+
+@app.get("/login")
 async def login_page(resquest:Request):
     return templates.TemplateResponse("login.html",{"request":resquest})
 
