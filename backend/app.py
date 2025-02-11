@@ -14,8 +14,12 @@ async def home_page(resquest:Request):
     return templates.TemplateResponse("home.html",{"request":resquest}) 
 
 @app.get("/login")
-async def login_page(resquest:Request):
+async def login_page(resquest:Request): 
     return templates.TemplateResponse("login.html",{"request":resquest})
+
+@app.get("/products")
+async def product_page(resquest:Request): 
+    return templates.TemplateResponse("products.html",{"request":resquest})
 
 if __name__=="__main__":
     uvicorn.run(app,host='0.0.0.0', port=8002, workers=1)
